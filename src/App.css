@@ -1,0 +1,252 @@
+
+
+.contenidoPrincipal{
+  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-color: aliceblue;
+  color: black;
+  display: grid;
+  grid-template-areas: 
+  "header header header"
+  "peliculas peliculas lateral"
+  "peliculas peliculas add"
+  "footer footer footer"
+  ;
+  grid-template-columns: auto auto 300px;
+}    
+
+.header {
+  grid-area: header;
+}
+
+.conteiner-logo{
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo{
+  background-color: rgb(136, 214, 58);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.marca{
+  background-color: rgb(42, 165, 93);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 29%;
+  left: 29%;
+}
+
+.Title1{
+  margin-left: 20px;
+}
+
+
+.nav .lista{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  /* de esta forma, puedo cambiar el degradado, colocando el sentido en ingles */
+  background: linear-gradient(to right,#24694d 0%, #8ecec1 85%) ;
+  padding: 10px 0px;
+  padding-left: 20px;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.nav li:hover {
+  color: rgb(23, 76, 26);
+  transform: scale(1.2);
+}
+
+  .nav .lista li a{
+      text-decoration: none;
+      color: white;
+  }
+      .nav .lista li a:hover{
+          color: black;
+      }
+
+.peliculas {
+  grid-area: peliculas;
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  /* Este me permite darle un comportamiento simultaneo a mi flexbox */
+  flex-flow: row wrap;
+  
+}
+  .peli-item{
+      border: 2px solid #4545450c;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(231, 240, 233);
+      padding: 20px;
+      /* Esto me permite que el flexbox se adapte a los espacios vacíos */
+      flex-grow: 1;
+  }
+      .botones{
+          display: flex;
+          gap: 10px;
+      }
+          .botones .edit,
+          .botones .delete{
+              padding: 10px;
+              background-color: #8ecec1;
+              border: 0;
+              border-radius: 4px;
+              color: #f2f2f2;
+              width: 80px;
+              cursor: pointer;
+          }
+              .botones .edit:hover,
+              .formulario > input[type="submit"]:hover{
+                  background-color: #235874;
+              }
+                  .botones .delete:hover{
+                      background-color: #c63636;
+                  }
+
+.lateral{
+  grid-area: lateral;
+  box-sizing: border-box;
+  padding: 15px 20px 15px 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+}
+
+.search{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border: #8ecec150 solid 2px;
+  border-radius: 5px;
+  padding: 10px;
+}
+  .search > h3 {
+      margin: 10px auto;
+      color: #24694d;
+  }
+      .search form > input[type = "text"]{
+          border-radius: 10px;
+          height: 20px;
+          border: #8ecec1 solid 2px;
+          background-color: #d9f8f1;
+          margin-right: 5px;
+          color: black;
+      }
+          .search form > button,
+          .add form input[type="submit"],
+          .formulario > input[type="submit"]{
+              background-color: #8ecec1;
+              border: none;
+              padding: 5px 10px;
+              color: #f2f2f2;
+              border-radius: 5px;
+              cursor: pointer;
+              max-width: 60%;
+              
+          }
+
+.add {
+  grid-area: add;
+  display: block;
+  border: solid 2px #8ecec150;
+  padding: 10px;
+  border-radius: 5px;
+  
+}
+  .add .formulario {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: auto 80%;
+  }
+
+  .editar {
+    width: 80%;
+    display: flex;
+  }
+
+  .editar > .formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0 10px 0;
+    /* Esto me permite que el flexbox se adapte a los espacios vacíos */
+    flex-grow: 1;
+  }
+      .add > h3 {
+          color: #235874;
+          margin: 10px auto;
+      }
+          .add form > input[type="text"],
+          .formulario > input[type="text"]{
+              background-color: #d9f8f1;
+              border: #8ecec1 solid 2px;
+              border-radius: 10px;
+              height: 20px;
+              color: black;
+          }
+              .add form > textarea,
+              .formulario > textarea{
+                  background-color: #d9f8f1;
+                  border: #8ecec1 solid 2px;
+                  border-radius: 10px;
+                  height: 80px;
+                  color: black;
+              }
+                
+
+footer {
+  grid-area: footer;
+  margin-top: 40px;
+  background-color: #8ecec1;
+  padding: 20px 0;
+  color: white;
+}
+  footer > a{
+      text-decoration: none;
+      color: #24694d;
+      font-weight: bold;
+  }
+
+@media screen and (max-width: 800px){
+  
+
+  body{
+      grid-template-columns: auto auto auto;
+  }
+
+  .search form > button {
+      margin: 10px;
+  }
+  
+}
+
+@media screen and (max-width: 500px){
+  body{
+      grid-template-areas: 
+      "header header header"
+      "peliculas peliculas peliculas"
+      "lateral lateral lateral"
+      "footer footer footer";
+  }
+  
+}
