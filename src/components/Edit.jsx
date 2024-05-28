@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Editar = ({Peliculas, ListaPeliculas, setListaPeliculas}) => {
+const Editar = ({Peliculas, ListaPeliculas, setListaPeliculas, setEditar}) => {
 
   const actualizarPeli = (e, id) => {
     e.preventDefault()
@@ -33,12 +33,16 @@ const Editar = ({Peliculas, ListaPeliculas, setListaPeliculas}) => {
     peliculas[index] = peliculaEditada
 
     //Ahora mando todas las películas con la nueva editada para que se actualice
-
+    
     setListaPeliculas(peliculas)
 
     //Por último, tengo que actulizar el localstorage
 
     localStorage.setItem("pelis", JSON.stringify(peliculas))
+
+    //Ahora hago que el formulario mande una señal para que desaparezca, como editar al estar en valor cero, no se abre, le regreso ese valor y el formulario se cierra
+
+    setEditar(0)
 
     // console.log(datos, id, ListaPeliculas, index, peliculaEditada, peliculas)
   }  

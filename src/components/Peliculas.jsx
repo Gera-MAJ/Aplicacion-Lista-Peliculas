@@ -7,13 +7,25 @@ export const Peliculas = ({listaPeliculas, setListaPeliculas}) => {
 
   // const [peliculas, setPeliculas] = useState([])
   const [editar, setEditar] = useState(0)
+  // Agrego está bandera para hacer que el formulario se cierre cuando cambia
+  
 
   useEffect(() => {
     if(JSON.parse(localStorage.getItem("pelis")) != null){
 
-      setListaPeliculas(JSON.parse(localStorage.getItem("pelis"))) 
+      // setListaPeliculas(JSON.parse(localStorage.getItem("pelis"))) 
+
+      conseguirLista();
     }
   }, [])
+
+  const conseguirLista = () => {
+    let peliculasListadas = JSON.parse(localStorage.getItem("pelis"));
+
+    setListaPeliculas(peliculasListadas)
+
+    return Peliculas
+  }
 
   function borrarPelicula(id){
     console.log(id)
@@ -44,7 +56,7 @@ export const Peliculas = ({listaPeliculas, setListaPeliculas}) => {
                       </div>
 
                       {/* // Acá tiene que aparecer lo que necesito para colocar la edición debajo del campo que estoy editando */}
-                      {editar === peli.id && <Editar Peliculas={peli} ListaPeliculas ={listaPeliculas} setListaPeliculas = {setListaPeliculas}/>}
+                      {(editar === peli.id) && <Editar Peliculas={peli} ListaPeliculas ={listaPeliculas} setListaPeliculas = {setListaPeliculas} setEditar = {setEditar}/>}
                   </article>
 
                   
