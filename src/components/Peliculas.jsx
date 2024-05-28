@@ -44,7 +44,7 @@ export const Peliculas = ({listaPeliculas, setListaPeliculas}) => {
                       </div>
 
                       {/* // Acá tiene que aparecer lo que necesito para colocar la edición debajo del campo que estoy editando */}
-                      {editar === peli.id && <Editar Peliculas={peli}/>}
+                      {editar === peli.id && <Editar Peliculas={peli} ListaPeliculas ={listaPeliculas} setListaPeliculas = {setListaPeliculas}/>}
                   </article>
 
                   
