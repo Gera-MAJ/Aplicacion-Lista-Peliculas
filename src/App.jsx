@@ -36,7 +36,7 @@ function App() {
         
         <aside className="lateral">
 
-            <Search />  
+            <Search listaPeliculas = {listaPeliculas} setListaPeliculas = {setListaPeliculas}/>  
 
             <Add setListaPeliculas = {setListaPeliculas} />
         
